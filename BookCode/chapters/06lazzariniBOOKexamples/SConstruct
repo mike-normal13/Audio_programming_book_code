@@ -1,0 +1,86 @@
+# SConstruct for Time-domain Essentials
+# examples and projects
+# (c) V Lazzarini, 2009
+# 
+# See the end of the file for instructions on
+# how to add your own projects
+
+import os
+import sys
+
+if sys.platform[:3] == 'win':
+   local_path = 'C:/msys/1.0/local'
+   env =  Environment(ENV = {'PATH' : os.environ['PATH'],
+          'TEMP' : os.environ ['TEMP']}, TOOLS=['mingw']) 
+else:
+   local_path = '/usr/local'
+   env =  Environment(ENV = {'PATH' : os.environ['PATH']})
+
+
+env.Append(CPPPATH = ['%s/include' % local_path, '.'])
+env.Append(LIBPATH = '%s/lib' % local_path)
+env.Append(LIBS = 'sndfile')
+
+if sys.platform[:5] == 'linux': env.Append(CPPFLAGS='-D__cdecl=""')
+
+configure = env.Configure()
+sane = configure.CheckHeader("stdio.h", language="C")
+if not sane:
+ print "\n*** BUILD ERROR: there is a problem with your C/C++ compiler"
+ print "  =>please check it before proceeding\n"
+
+sndfile = configure.CheckHeader("sndfile.h", language="C")
+if not sndfile:
+ print "\n***BUILD ERROR:libsndfile not found"
+ print " =>You can get it from http://www.mega-nerd.com/libsndfile"
+ print "   please install it in /usr/local/lib before proceeding\n"
+
+vstcheck = configure.CheckHeader("vstsdk2.4/pluginterfaces/vst2.x/aeffect.h", language="C++")
+if not vstcheck:
+  print "\n***BUILD ERROR: VST SDK not found, plugin will not be built"
+  print " =>You can get it from"
+  print "http://www.steinberg.net/en/company/3rd_party_developer.html"
+  print "   please drop the vstsdk2.4 directory here to proceed\n" 
+
+if sane and sndfile:
+ print "\n*** BUILDING PROGRAMS:"
+ print "     oscillator: a simple oscillator-based example" 
+ print "     envelope: an oscillator with envelopes"
+ print "     filter: subtractive synthesis example"
+ print "     delay:  a simple flange effect"
+ print "     conv: a convolution program"
+ if vstcheck:
+  print "*** BUILDING VST plugin *********************"
+ print "**********************************************"
+ print "NB: you can use the SConstruct file to add your"
+ print "own projects to the build. See the SConstruct file"
+ print "for further instructions."
+ print "***********************************************\n\n"
+
+
+oscillator = env.Program('oscillator', ['oscil.cpp', 'soundio.cpp', 'ftables.cpp', 'main1.cpp'])
+envelope = env.Program('envelope', ['envel.cpp', 'oscil.cpp', 'soundio.cpp', 'ftables.cpp', 'main2.cpp'])
+filter = env.Program('filter', ['filter.cpp', 'envel.cpp', 'oscil.cpp', 'soundio.cpp', 'ftables.cpp', 'main3.cpp'])
+delay = env.Program('delay', ['envel.cpp','filter.cpp',  'delay.cpp', 'soundio.cpp', 'main4.cpp'])
+conv = env.Program('conv', ['delay.cpp', 'soundio.cpp', 'main5.cpp'])
+
+# VST plugin
+if vstcheck:
+ vstpath = 'vstsdk2.4/public.sdk/source/vst2.x'
+ sdksrcs = ['%s/audioeffect.cpp' % vstpath, 
+   	   '%s/audioeffectx.cpp' % vstpath, 
+   	   '%s/vstplugmain.cpp' % vstpath]
+
+ env.Append(CPPPATH=['vstsdk2.4', vstpath])
+ myplug = env.LoadableModule('myplug',['myplug.cpp', sdksrcs])
+
+ if sys.platform[:6] == 'darwin':
+   env.Command('myplug.vst/Contents/MacOS/myplug', 'myplug', 
+        'cp myplug myplug.vst/Contents/MacOS/myplug');
+
+# you can add here your own projects here
+# use this format:
+# project = env.Program('project', 'source.c')
+# where project is the name of your new program 
+# and source
+

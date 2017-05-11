@@ -1,0 +1,577 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: convolution - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5D8.tmp" with contents
+[
+/nologo /ML /W3 /GX /O2 /I ".." /I "." /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Release/convolution.pch" /YX /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\Documents and Settings\vlazzarini\work\research\cs book chapters\newa\convolution_main.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5D8.tmp" 
+Creating temporary file "C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5D9.tmp" with contents
+[
+kernel32.lib rfftw.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:no /pdb:"Release/convolution.pdb" /machine:I386 /out:"Release/convolution.exe" /libpath:"../rfftw/release" 
+".\Release\convol.obj"
+".\Release\convolution_main.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5D9.tmp"
+<h3>Output Window</h3>
+Compiling...
+convolution_main.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+convolution.exe - 0 error(s), 0 warning(s)
+<h3>
+--------------------Configuration: convolution - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5DB.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /I "." /I ".." /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/convolution.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Documents and Settings\vlazzarini\work\research\cs book chapters\newa\convolution_main.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5DB.tmp" 
+Creating temporary file "C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5DC.tmp" with contents
+[
+kernel32.lib rfftw.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/convolution.pdb" /debug /machine:I386 /out:"Debug/convolution.exe" /pdbtype:sept /libpath:"../rfftw/debug" 
+".\Debug\convol.obj"
+".\Debug\convolution_main.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5DC.tmp"
+<h3>Output Window</h3>
+Compiling...
+convolution_main.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+convolution.exe - 0 error(s), 0 warning(s)
+<h3>
+--------------------Configuration: cross - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5DE.tmp" with contents
+[
+/nologo /ML /W3 /GX /O2 /I "." /I ".." /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Release/cross.pch" /YX /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\Documents and Settings\vlazzarini\work\research\cs book chapters\newa\cross_main.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5DE.tmp" 
+Creating temporary file "C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5DF.tmp" with contents
+[
+kernel32.lib rfftw.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:no /pdb:"Release/cross.pdb" /machine:I386 /out:"Release/cross.exe" /libpath:"../rfftw/release" 
+".\Release\cross_main.obj"
+".\Release\crosspec.obj"
+".\Release\stft.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5DF.tmp"
+<h3>Output Window</h3>
+Compiling...
+cross_main.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+cross.exe - 0 error(s), 0 warning(s)
+<h3>
+--------------------Configuration: cross - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5E1.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /I "." /I ".." /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/cross.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Documents and Settings\vlazzarini\work\research\cs book chapters\newa\cross_main.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5E1.tmp" 
+Creating temporary file "C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5E2.tmp" with contents
+[
+kernel32.lib rfftw.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/cross.pdb" /debug /machine:I386 /out:"Debug/cross.exe" /pdbtype:sept /libpath:"../rfftw/debug" 
+".\Debug\cross_main.obj"
+".\Debug\crosspec.obj"
+".\Debug\stft.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5E2.tmp"
+<h3>Output Window</h3>
+Compiling...
+cross_main.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+cross.exe - 0 error(s), 0 warning(s)
+<h3>
+--------------------Configuration: dft - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+
+
+
+<h3>Results</h3>
+dft.exe - 0 error(s), 0 warning(s)
+<h3>
+--------------------Configuration: dft - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+
+
+
+<h3>Results</h3>
+dft.exe - 0 error(s), 0 warning(s)
+<h3>
+--------------------Configuration: ifd - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5E4.tmp" with contents
+[
+/nologo /ML /W3 /GX /O2 /I "." /I ".." /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Release/ifd.pch" /YX /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\Documents and Settings\vlazzarini\work\research\cs book chapters\newa\ifd_main.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5E4.tmp" 
+Creating temporary file "C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5E5.tmp" with contents
+[
+kernel32.lib rfftw.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:no /pdb:"Release/ifd.pdb" /machine:I386 /out:"Release/ifd.exe" /libpath:"../rfftw/release" 
+".\Release\adsyn.obj"
+".\Release\ifd.obj"
+".\Release\ifd_main.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5E5.tmp"
+<h3>Output Window</h3>
+Compiling...
+ifd_main.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+ifd.exe - 0 error(s), 0 warning(s)
+<h3>
+--------------------Configuration: ifd - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5E7.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /I "." /I ".." /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/ifd.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Documents and Settings\vlazzarini\work\research\cs book chapters\newa\ifd_main.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5E7.tmp" 
+Creating temporary file "C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5E8.tmp" with contents
+[
+kernel32.lib rfftw.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/ifd.pdb" /debug /machine:I386 /out:"Debug/ifd.exe" /pdbtype:sept /libpath:"../rfftw/debug" 
+".\Debug\adsyn.obj"
+".\Debug\ifd.obj"
+".\Debug\ifd_main.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5E8.tmp"
+<h3>Output Window</h3>
+Compiling...
+ifd_main.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+ifd.exe - 0 error(s), 0 warning(s)
+<h3>
+--------------------Configuration: pdiff - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5EA.tmp" with contents
+[
+/nologo /ML /W3 /GX /O2 /I "." /I ".." /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Release/pdiff.pch" /YX /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\Documents and Settings\vlazzarini\work\research\cs book chapters\newa\pdiff_main.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5EA.tmp" 
+Creating temporary file "C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5EB.tmp" with contents
+[
+kernel32.lib rfftw.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:no /pdb:"Release/pdiff.pdb" /machine:I386 /out:"Release/pdiff.exe" /libpath:"../rfftw/release" 
+".\Release\deltaphi.obj"
+".\Release\pdiff_main.obj"
+".\Release\stft.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5EB.tmp"
+<h3>Output Window</h3>
+Compiling...
+pdiff_main.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+pdiff.exe - 0 error(s), 0 warning(s)
+<h3>
+--------------------Configuration: pdiff - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5ED.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /I "." /I ".." /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/pdiff.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Documents and Settings\vlazzarini\work\research\cs book chapters\newa\pdiff_main.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5ED.tmp" 
+Creating temporary file "C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5EE.tmp" with contents
+[
+kernel32.lib rfftw.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/pdiff.pdb" /debug /machine:I386 /out:"Debug/pdiff.exe" /pdbtype:sept /libpath:"../rfftw/debug" 
+".\Debug\deltaphi.obj"
+".\Debug\pdiff_main.obj"
+".\Debug\stft.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5EE.tmp"
+<h3>Output Window</h3>
+Compiling...
+pdiff_main.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+pdiff.exe - 0 error(s), 0 warning(s)
+<h3>
+--------------------Configuration: pv - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5F0.tmp" with contents
+[
+/nologo /ML /W3 /GX /O2 /I "." /I ".." /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Release/pv.pch" /YX /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\Documents and Settings\vlazzarini\work\research\cs book chapters\newa\pv_main.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5F0.tmp" 
+Creating temporary file "C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5F1.tmp" with contents
+[
+kernel32.lib rfftw.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:no /pdb:"Release/pv.pdb" /machine:I386 /out:"Release/pv.exe" /libpath:"../rfftw/release" 
+".\Release\pv.obj"
+".\Release\pv_main.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5F1.tmp"
+<h3>Output Window</h3>
+Compiling...
+pv_main.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+pv.exe - 0 error(s), 0 warning(s)
+<h3>
+--------------------Configuration: pv - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5F3.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /I "." /I ".." /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/pv.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Documents and Settings\vlazzarini\work\research\cs book chapters\newa\pv_main.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5F3.tmp" 
+Creating temporary file "C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5F4.tmp" with contents
+[
+kernel32.lib rfftw.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/pv.pdb" /debug /machine:I386 /out:"Debug/pv.exe" /pdbtype:sept /libpath:"../rfftw/debug" 
+".\Debug\pv.obj"
+".\Debug\pv_main.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5F4.tmp"
+<h3>Output Window</h3>
+Compiling...
+pv_main.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+pv.exe - 0 error(s), 0 warning(s)
+<h3>
+--------------------Configuration: pvmorph - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5F6.tmp" with contents
+[
+/nologo /ML /W3 /GX /O2 /I "." /I ".." /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Release/pvmorph.pch" /YX /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\Documents and Settings\vlazzarini\work\research\cs book chapters\newa\morph_main.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5F6.tmp" 
+Creating temporary file "C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5F7.tmp" with contents
+[
+kernel32.lib rfftw.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:no /pdb:"Release/pvmorph.pdb" /machine:I386 /out:"Release/pvmorph.exe" /libpath:"../rfftw/release" 
+".\Release\morph_main.obj"
+".\Release\pv.obj"
+".\Release\pvmorph.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5F7.tmp"
+<h3>Output Window</h3>
+Compiling...
+morph_main.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+pvmorph.exe - 0 error(s), 0 warning(s)
+<h3>
+--------------------Configuration: pvmorph - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5F9.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /I "." /I ".." /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/pvmorph.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Documents and Settings\vlazzarini\work\research\cs book chapters\newa\morph_main.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5F9.tmp" 
+Creating temporary file "C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5FA.tmp" with contents
+[
+kernel32.lib rfftw.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/pvmorph.pdb" /debug /machine:I386 /out:"Debug/pvmorph.exe" /pdbtype:sept /libpath:"../rfftw/debug" 
+".\Debug\morph_main.obj"
+".\Debug\pv.obj"
+".\Debug\pvmorph.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5FA.tmp"
+<h3>Output Window</h3>
+Compiling...
+morph_main.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+pvmorph.exe - 0 error(s), 0 warning(s)
+<h3>
+--------------------Configuration: rfftw - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+
+
+
+<h3>Results</h3>
+rfftw.lib - 0 error(s), 0 warning(s)
+<h3>
+--------------------Configuration: rfftw - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+
+
+
+<h3>Results</h3>
+rfftw.lib - 0 error(s), 0 warning(s)
+<h3>
+--------------------Configuration: simpflt - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5FC.tmp" with contents
+[
+/nologo /ML /W3 /GX /O2 /I "." /I ".." /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Release/simpflt.pch" /YX /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\Documents and Settings\vlazzarini\work\research\cs book chapters\newa\simpflt_main.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5FC.tmp" 
+Creating temporary file "C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5FD.tmp" with contents
+[
+kernel32.lib rfftw.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:no /pdb:"Release/simpflt.pdb" /machine:I386 /out:"Release/simpflt.exe" /libpath:"../rfftw/release" 
+".\Release\simpflt_main.obj"
+".\Release\simplp.obj"
+".\Release\stft.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5FD.tmp"
+<h3>Output Window</h3>
+Compiling...
+simpflt_main.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+simpflt.exe - 0 error(s), 0 warning(s)
+<h3>
+--------------------Configuration: simpflt - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5FF.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /I "." /I ".." /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/simpflt.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Documents and Settings\vlazzarini\work\research\cs book chapters\newa\simpflt_main.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP5FF.tmp" 
+Creating temporary file "C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP600.tmp" with contents
+[
+kernel32.lib rfftw.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/simpflt.pdb" /debug /machine:I386 /out:"Debug/simpflt.exe" /pdbtype:sept /libpath:"../rfftw/debug" 
+".\Debug\simpflt_main.obj"
+".\Debug\simplp.obj"
+".\Debug\stft.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP600.tmp"
+<h3>Output Window</h3>
+Compiling...
+simpflt_main.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+simpflt.exe - 0 error(s), 0 warning(s)
+<h3>
+--------------------Configuration: speccomb - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP602.tmp" with contents
+[
+/nologo /ML /W3 /GX /O2 /I "." /I ".." /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Release/speccomb.pch" /YX /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\Documents and Settings\vlazzarini\work\research\cs book chapters\newa\speccomb_main.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP602.tmp" 
+Creating temporary file "C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP603.tmp" with contents
+[
+kernel32.lib rfftw.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:no /pdb:"Release/speccomb.pdb" /machine:I386 /out:"Release/speccomb.exe" /libpath:"../rfftw/release" 
+".\Release\speccomb_main.obj"
+".\Release\specomb.obj"
+".\Release\stft.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP603.tmp"
+<h3>Output Window</h3>
+Compiling...
+speccomb_main.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+speccomb.exe - 0 error(s), 0 warning(s)
+<h3>
+--------------------Configuration: speccomb - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP605.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /I "." /I ".." /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/speccomb.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Documents and Settings\vlazzarini\work\research\cs book chapters\newa\speccomb_main.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP605.tmp" 
+Creating temporary file "C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP606.tmp" with contents
+[
+kernel32.lib rfftw.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/speccomb.pdb" /debug /machine:I386 /out:"Debug/speccomb.exe" /pdbtype:sept /libpath:"../rfftw/debug" 
+".\Debug\speccomb_main.obj"
+".\Debug\specomb.obj"
+".\Debug\stft.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP606.tmp"
+<h3>Output Window</h3>
+Compiling...
+speccomb_main.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+speccomb.exe - 0 error(s), 0 warning(s)
+<h3>
+--------------------Configuration: specreson - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP608.tmp" with contents
+[
+/nologo /ML /W3 /GX /O2 /I "." /I ".." /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Release/specreson.pch" /YX /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\Documents and Settings\vlazzarini\work\research\cs book chapters\newa\specreson_main.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP608.tmp" 
+Creating temporary file "C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP609.tmp" with contents
+[
+kernel32.lib rfftw.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:no /pdb:"Release/specreson.pdb" /machine:I386 /out:"Release/specreson.exe" /libpath:"../rfftw/release" 
+".\Release\specreson.obj"
+".\Release\specreson_main.obj"
+".\Release\stft.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP609.tmp"
+<h3>Output Window</h3>
+Compiling...
+specreson_main.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+specreson.exe - 0 error(s), 0 warning(s)
+<h3>
+--------------------Configuration: specreson - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP60B.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /I "." /I ".." /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/specreson.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Documents and Settings\vlazzarini\work\research\cs book chapters\newa\specreson_main.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP60B.tmp" 
+Creating temporary file "C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP60C.tmp" with contents
+[
+kernel32.lib rfftw.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/specreson.pdb" /debug /machine:I386 /out:"Debug/specreson.exe" /pdbtype:sept /libpath:"../rfftw/debug" 
+".\Debug\specreson.obj"
+".\Debug\specreson_main.obj"
+".\Debug\stft.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP60C.tmp"
+<h3>Output Window</h3>
+Compiling...
+specreson_main.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+specreson.exe - 0 error(s), 0 warning(s)
+<h3>
+--------------------Configuration: stft - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP60E.tmp" with contents
+[
+/nologo /ML /W3 /GX /O2 /I "." /I ".." /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Release/stft.pch" /YX /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\Documents and Settings\vlazzarini\work\research\cs book chapters\newa\stft_main.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP60E.tmp" 
+Creating temporary file "C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP60F.tmp" with contents
+[
+kernel32.lib rfftw.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:no /pdb:"Release/stft.pdb" /machine:I386 /out:"Release/stft.exe" /libpath:"../rfftw/release" 
+".\Release\stft.obj"
+".\Release\stft_main.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP60F.tmp"
+<h3>Output Window</h3>
+Compiling...
+stft_main.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+stft.exe - 0 error(s), 0 warning(s)
+<h3>
+--------------------Configuration: stft - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP611.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /I "." /I ".." /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/stft.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Documents and Settings\vlazzarini\work\research\cs book chapters\newa\stft_main.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP611.tmp" 
+Creating temporary file "C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP612.tmp" with contents
+[
+kernel32.lib rfftw.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/stft.pdb" /debug /machine:I386 /out:"Debug/stft.exe" /pdbtype:sept /libpath:"../rfftw/debug" 
+".\Debug\stft.obj"
+".\Debug\stft_main.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP612.tmp"
+<h3>Output Window</h3>
+Compiling...
+stft_main.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+stft.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

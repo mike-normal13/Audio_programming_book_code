@@ -1,0 +1,63 @@
+# SConstruct for Introduction to Digital Signals
+# examples and projects
+# (c) V Lazzarini, 2007
+# 
+# See the end of the file for instructions on
+# how to add your own projects
+
+import os
+import sys
+
+if sys.platform[:3] == 'win':
+   local_path = 'C:/msys/1.0/local'
+   env =  Environment(ENV = {'PATH' : os.environ['PATH'],
+          'TEMP' : os.environ ['TEMP']}, TOOLS=['mingw']) 
+else:
+   local_path = '/usr/local'
+   env =  Environment(ENV = {'PATH' : os.environ['PATH']})
+
+
+env.Append(CPPPATH = '%s/include' % local_path)
+env.Append(LIBPATH = '%s/lib' % local_path)
+env.Append(LIBS = 'sndfile')
+
+configure = env.Configure()
+sane = configure.CheckHeader("stdio.h", language="C")
+if not sane:
+ print "\n*** BUILD ERROR: there is a problem with your C/C++ compiler"
+ print "  =>please check it before proceeding\n"
+
+sndfile = configure.CheckHeader("sndfile.h", language="C")
+if not sndfile:
+ print "\n***BUILD ERROR:libsndfile not found"
+ print " =>You can get it from http://www.mega-nerd.com/libsndfile"
+ print "   please install it in /usr/local/lib before proceeding\n"
+
+if sane and sndfile:
+ print "\n*** BUILDING PROGRAMS:"
+ print "     sine: a simple sinewave generator" 
+ print "     mix: a soundfile mixer"
+ print "     gain: a soundfile gain modifier"
+ print "     ring: ring modulation of two soundfiles"
+ print "     synth: a SAW/SQUARE waveform generator"
+ print "     fmsynth: a FM synthesizer\n"
+ print "**********************************************"
+ print "NB: you can use the SConstruct file to add your"
+ print "own projects to the build. See the SConstruct file"
+ print "for further instructions."
+ print "***********************************************\n\n"
+
+
+ sine = env.Program('sine', 'sine.c')
+ mix  = env.Program('mix',   'mix.c')
+ gain = env.Program('gain', 'gain.c') 
+ ring = env.Program('ring', 'ring.c')
+ synth = env.Program('synth', 'synth.c')
+ fmsynth = env.Program('fmsynth', 'fmsynth.c')
+
+# you can add here your own projects here
+# use this format:
+# project = env.Program('project', 'source.c')
+# where project is the name of your new program 
+# and source
+

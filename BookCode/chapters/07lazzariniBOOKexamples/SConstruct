@@ -1,0 +1,81 @@
+# SConstruct for Spectral Programming Basics
+# examples and projects
+# (c) V Lazzarini, 2007
+# 
+# See the end of the file for instructions on
+# how to add your own projects
+
+import os
+import sys
+
+if sys.platform[:3] == 'win':
+   local_path = 'C:/msys/1.0/local'
+   env =  Environment(ENV = {'PATH' : os.environ['PATH'],
+          'TEMP' : os.environ ['TEMP']}, TOOLS=['mingw']) 
+else:
+   local_path = '/usr/local'
+   env =  Environment(ENV = {'PATH' : os.environ['PATH']})
+
+env.Append(CPPPATH = ['%s/include' % local_path, './rfftw'])
+env.Append(LIBPATH = ['%s/lib' % local_path, '.'])
+env.Append(LIBS = ['sndfile', 'rfftw'])
+
+configure = env.Configure()
+sane = configure.CheckHeader("stdio.h", language="C")
+if not sane:
+ print "\n*** BUILD ERROR: there is a problem with your C/C++ compiler"
+ print "  =>please check it before proceeding\n"
+
+sndfile = configure.CheckHeader("sndfile.h", language="C")
+if not sndfile:
+ print "\n***BUILD ERROR:libsndfile not found"
+ print " =>You can get it from http://www.mega-nerd.com/libsndfile"
+ print "   please install it in /usr/local/lib before proceeding\n"
+
+if sane and sndfile:
+
+  fftwsources = Split("""config.c  fcr_9.c fhf_6.c fn_8.c 
+  frc_1.c  ftw_16.c ftwi_7.c 
+  executor.c fftwnd.c fhf_7.c fn_9.c  frc_10.c ftw_2.c  ftwi_8.c 
+  fcr_1.c fhb_10.c fhf_8.c fni_1.c frc_11.c ftw_3.c  ftwi_9.c 
+  fcr_10.c  fhb_16.c fhf_9.c fni_10.c frc_12.c ftw_32.c generic.c 
+  fcr_11.c  fhb_2.c fn_1.c fni_11.c frc_128.c ftw_4.c  malloc.c 
+  fcr_12.c  fhb_3.c fn_10.c fni_12.c frc_13.c ftw_5.c  planner.c 
+  fcr_128.c fhb_32.c fn_11.c fni_13.c frc_14.c ftw_6.c  putils.c 
+  fcr_13.c  fhb_4.c fn_12.c fni_14.c frc_15.c ftw_64.c rader.c 
+  fcr_14.c  fhb_5.c fn_13.c fni_15.c frc_16.c ftw_7.c  rconfig.c 
+  fcr_15.c  fhb_6.c fn_14.c fni_16.c frc_2.c  ftw_8.c  rexec.c 
+  fcr_16.c  fhb_7.c fn_15.c fni_2.c frc_3.c  ftw_9.c  rexec2.c 
+  fcr_2.c fhb_8.c fn_16.c fni_3.c frc_32.c ftwi_10.c rfftwf77.c 
+  fcr_3.c fhb_9.c fn_2.c fni_32.c frc_4.c  ftwi_16.c rfftwnd.c 
+  fcr_32.c  fhf_10.c fn_3.c fni_4.c frc_5.c  ftwi_2.c rgeneric.c 
+  fcr_4.c fhf_16.c fn_32.c fni_5.c frc_6.c  ftwi_3.c rplanner.c 
+  fcr_5.c fhf_2.c fn_4.c fni_6.c frc_64.c ftwi_32.c timer.c 
+  fcr_6.c fhf_3.c fn_5.c fni_64.c frc_7.c  ftwi_4.c twiddle.c 
+  fcr_64.c  fhf_32.c fn_6.c fni_7.c frc_8.c  ftwi_5.c wisdom.c 
+  fcr_7.c fhf_4.c fn_64.c fni_8.c frc_9.c  ftwi_6.c wisdomio.c 
+  fcr_8.c fhf_5.c fn_7.c fni_9.c ftw_10.c ftwi_64.c fourier.cpp""")
+
+  rfftwsrc = map(lambda x: './rfftw/' + x, fftwsources)
+  
+  print "*** BUILDING rfftw library:\n\n"
+  rfftw = env.Library('rfftw', rfftwsrc)
+  print "*** BUILDING PROGRAMS:"
+  print "    dft: dft test program"
+  dft = env.Program('dft', ['dft_main.cpp', 'dft.cpp'])
+  print "    convolution: fast convolution"
+  convol = env.Program('convolution', ['convol.cpp', 'convolution_main.cpp']) 
+
+  print "\n\n**********************************************"
+  print "NB: you can use the SConstruct file to add your"
+  print "own projects to the build. See the SConstruct file"
+  print "for further instructions."
+  print "***********************************************\n\n"
+
+# you can add here your own projects here
+# use this format:
+# project = env.Program('project', 'source.c')
+# where project is the name of your new program 
+# and source.c is your source file
+# for more than one source files, use a list
+# eg. ['source1.c', 'source2.c']
