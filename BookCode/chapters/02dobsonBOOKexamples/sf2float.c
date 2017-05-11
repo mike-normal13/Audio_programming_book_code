@@ -27,7 +27,7 @@ OTHER DEALINGS IN THE SOFTWARE.
 #include <portsf.h>
 #include <time.h>
 
-#define FRAME_BUF 32 
+#define FRAME_BUF 4 
 
 // Exercise 2.1.1
 // Timing results for rain_spread.wav:
@@ -37,6 +37,9 @@ OTHER DEALINGS IN THE SOFTWARE.
 //	when using 8 frames at a time: Time taken 0 seconds 755 milliseconds
 //	when using 16 frames at a time: Time taken 0 seconds 746 milliseconds
 //	when using 32 frames at a time: Time taken 0 seconds 718 milliseconds
+// 	when using 64 frames at a time: Time taken 0 seconds 720 milliseconds
+
+void displayFileInfo(PSF_PROPS* props);
 
 int main(int argc, char* argv[])
 {
@@ -49,6 +52,10 @@ int main(int argc, char* argv[])
 	PSF_CHPEAK* peaks = NULL;
 	float* frame = NULL;
 	psf_format outformat =  PSF_FMT_UNKNOWN;
+
+	// number of loops specified by the user
+	int nLoops = 0;
+	int loopCount = 0;
 
 	// variables for timing
 	clock_t start;
@@ -67,12 +74,24 @@ int main(int argc, char* argv[])
 		printf("unable to start portsf\n");
 		return 1;
 	}
+
+	// check for loop arg
+	if(argc == 4)
+	{
+		// parse loop arg
+		nLoops = atoi(argv[3]);
+	}
 	
 	ifd = psf_sndOpen(argv[1],&props,0);																		  
-	if(ifd < 0){
+	if(ifd < 0)
+	{
 		printf("Error: unable to open infile %s\n",argv[1]);
 		return 1;
 	}
+
+	// display props
+	displayFileInfo(&props);
+
 	/* we now have a resource, so we use goto hereafter on hitting any error */
 	/* tell user if source file is already floats  */
 	if(props.samptype == PSF_SAMP_IEEE_FLOAT){
@@ -114,19 +133,32 @@ int main(int argc, char* argv[])
 
 	start = clock();
 
-	/* single-frame loop to do copy: report any read/write errors */
-	framesread = psf_sndReadFloatFrames(ifd, frame, FRAME_BUF);
-	totalread = 0;		/* count sample frames as they are copied */
-	while (framesread == FRAME_BUF)
+	// write to buffer nLoop times
+	while(nLoops > 0)
 	{
-		totalread += FRAME_BUF;
-		if(psf_sndWriteFloatFrames(ofd, frame, FRAME_BUF) != FRAME_BUF){
-			printf("Error writing to outfile\n");
-			error++;
-			break;
+		// TODO: I don't understand how the position in the files being written and read are being incremented!
+		/* single-frame loop to do copy: report any read/write errors */
+		framesread = psf_sndReadFloatFrames(ifd, frame, FRAME_BUF);
+		totalread = 0;		/* count sample frames as they are copied */
+	
+		while (framesread == FRAME_BUF)
+		{
+			totalread += FRAME_BUF;
+			if(psf_sndWriteFloatFrames(ofd, frame, FRAME_BUF) != FRAME_BUF)
+			{
+				printf("Error writing to outfile\n");
+				error++;
+				break;
+			}
+			/*  <----  do any processing here! ------> */
+			framesread = psf_sndReadFloatFrames(ifd,frame, FRAME_BUF);
 		}
-		/*  <----  do any processing here! ------> */
-		framesread = psf_sndReadFloatFrames(ifd,frame, FRAME_BUF);
+
+		nLoops--;
+		//int psf_sndSeek(int sfd,int offset,int seekmode);
+		//	enum { PSF_SEEK_SET=0,PSF_SEEK_CUR,PSF_SEEK_END};
+		psf_sndSeek(ifd, 0, PSF_SEEK_SET);
+
 	}
 
 	if(framesread < 0)	
@@ -166,4 +198,92 @@ exit:	 	if(ifd >= 0)
 		free(peaks);
 	psf_finish();
 	return error;
+}
+
+void displayFileInfo(PSF_PROPS* props)
+{
+	printf("infile's sample rate: %d\n", props->srate);
+	printf("infile's number of channels: %d\n", props->chans);
+
+	printf("infile's sample type: ");
+	switch(props->samptype)
+	{
+		case(PSF_SAMP_UNKNOWN):
+			printf("PSF_SAMP_UNKOWN\n");
+			break;
+		case(PSF_SAMP_8):
+			printf("PSF_SAMP_8\n");
+			break;
+		case(PSF_SAMP_16):
+			printf("PSF_SAMP_16\n");
+			break;
+		case(PSF_SAMP_24):
+			printf("PSF_SAMP_24\n");
+			break;
+		case(PSF_SAMP_32):
+			printf("PSF_SAMP_32\n");
+			break;
+		case(PSF_SAMP_IEEE_FLOAT):
+			printf("PSF_SAMP_IEEE_FLOAT\n");
+			break;
+
+	}
+
+	printf("infile's format: ");
+	switch(props->format)
+	{
+		case(PSF_FMT_UNKNOWN):
+			printf("PSF_FMT_UNKNOWN\n");
+			break;
+		case(PSF_STDWAVE):
+			printf("PSF_STDWAVE\n");
+			break;
+		case(PSF_WAVE_EX):
+			printf("PSF_WAVE_EX\n");
+			break;
+		case(PSF_AIFF):
+			printf("PSF_AIFF\n");
+			break;
+		case(PSF_AIFC):
+			printf("PSF_AIFC\n");
+			break;
+	}
+
+	printf("infile's channel format: ");
+	switch(props->chformat)
+	{
+		case(STDWAVE):
+			printf("STDWAVE\n");
+			break;
+		case(MC_STD):
+			printf("MC_STD\n");
+			break;
+		case(MC_MONO):
+			printf("MC_MONO\n");
+			break;
+		case(MC_STEREO):
+			printf("MC_STEREO\n");
+			break;
+		case(MC_QUAD):
+			printf("MC_QUAD\n");
+			break;
+		case(MC_LCRS):
+			printf("MC_LCRS\n");
+			break;
+		case(MC_BFMT):
+			printf("MC_BFMT\n");
+			break;
+		case(MC_DOLBY_5_1):
+			printf("\n");
+			break;
+		case(MC_WAVE_EX):
+			printf("MC_WAVE_EX\n");
+			break;
+		case(MC_SURR_5_0):
+			printf("MC_SURR_5_0\n");
+			break;
+		case(MC_SURR_7_1):
+			printf("MC_SURR_7_1\n");
+			break;
+	}	
 }
