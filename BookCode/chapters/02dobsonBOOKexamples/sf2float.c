@@ -54,8 +54,7 @@ int main(int argc, char* argv[])
 	psf_format outformat =  PSF_FMT_UNKNOWN;
 
 	// number of loops specified by the user
-	int nLoops = 0;
-	int loopCount = 0;
+	int nLoops = 1;
 
 	// variables for timing
 	clock_t start;
@@ -66,7 +65,9 @@ int main(int argc, char* argv[])
 	if(argc < 3){
 		printf("insufficient arguments.\n"
 				"usage:\n\t"
-				"sf2float infile outfile\n");
+				"sf2float infile outfile nLoops\n");
+		printf("entering a loop number of 1 or less will result in a single copy of the file, i.e. 1 loop.")
+		printf("entering an invalid value for nLoops will have the same effect as entering a value of 1 or less");
 		return 1;
 	}
 	/* be good, and startup portsf */
@@ -80,6 +81,12 @@ int main(int argc, char* argv[])
 	{
 		// parse loop arg
 		nLoops = atoi(argv[3]);
+
+		// if the user enters 0 or a negative number or some gibberish just make a single copy of the file.
+		if(nLoops < 1)
+		{
+			nLoops = 1;
+		}
 	}
 	
 	ifd = psf_sndOpen(argv[1],&props,0);																		  
@@ -155,10 +162,7 @@ int main(int argc, char* argv[])
 		}
 
 		nLoops--;
-		//int psf_sndSeek(int sfd,int offset,int seekmode);
-		//	enum { PSF_SEEK_SET=0,PSF_SEEK_CUR,PSF_SEEK_END};
 		psf_sndSeek(ifd, 0, PSF_SEEK_SET);
-
 	}
 
 	if(framesread < 0)	
