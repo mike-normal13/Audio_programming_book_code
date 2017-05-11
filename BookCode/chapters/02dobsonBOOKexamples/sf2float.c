@@ -27,6 +27,17 @@ OTHER DEALINGS IN THE SOFTWARE.
 #include <portsf.h>
 #include <time.h>
 
+#define FRAME_BUF 32 
+
+// Exercise 2.1.1
+// Timing results for rain_spread.wav:
+//	no changes: Time taken 1 seconds 84 milliseconds
+//	when using 2 frames at a time: Time taken 0 seconds 911 milliseconds
+//	when using 4 frames at a time: Time taken 0 seconds 810 milliseconds
+//	when using 8 frames at a time: Time taken 0 seconds 755 milliseconds
+//	when using 16 frames at a time: Time taken 0 seconds 746 milliseconds
+//	when using 32 frames at a time: Time taken 0 seconds 718 milliseconds
+
 int main(int argc, char* argv[])
 {
 	PSF_PROPS props;
@@ -38,6 +49,10 @@ int main(int argc, char* argv[])
 	PSF_CHPEAK* peaks = NULL;
 	float* frame = NULL;
 	psf_format outformat =  PSF_FMT_UNKNOWN;
+
+	// variables for timing
+	clock_t start;
+	clock_t span;
 
 	printf("SF2FLOAT: convert soundfile to 32bit floats format\n");
 
@@ -81,8 +96,8 @@ int main(int argc, char* argv[])
 		goto exit;
 	}
 
-	/* allocate space for one sample frame */
-	frame = (float*) malloc(props.chans * sizeof(float));
+	/* NO LONGER: allocate space for one sample frame */
+	frame = (float*) malloc(props.chans * sizeof(float) * FRAME_BUF);
 	if(frame==NULL){
 		puts("No memory!\n");
 		error++;
@@ -97,25 +112,33 @@ int main(int argc, char* argv[])
 	}
 	printf("copying....\n");
 
+	start = clock();
+
 	/* single-frame loop to do copy: report any read/write errors */
-	framesread = psf_sndReadFloatFrames(ifd,frame,1);
+	framesread = psf_sndReadFloatFrames(ifd, frame, FRAME_BUF);
 	totalread = 0;		/* count sample frames as they are copied */
-	while (framesread == 1){
-		totalread++;
-		if(psf_sndWriteFloatFrames(ofd,frame,1) != 1){
+	while (framesread == FRAME_BUF)
+	{
+		totalread += FRAME_BUF;
+		if(psf_sndWriteFloatFrames(ofd, frame, FRAME_BUF) != FRAME_BUF){
 			printf("Error writing to outfile\n");
 			error++;
 			break;
 		}
 		/*  <----  do any processing here! ------> */
-		framesread = psf_sndReadFloatFrames(ifd,frame,1);
+		framesread = psf_sndReadFloatFrames(ifd,frame, FRAME_BUF);
 	}
-	if(framesread < 0)	{
+
+	if(framesread < 0)	
+	{
 		printf("Error reading infile. Outfile is incomplete.\n");
 		error++;
 	}
 	else
+	{
 		printf("Done. %d sample frames copied to %s\n",totalread,argv[2]);
+	}
+
 	/* report PEAK values to user */
 	if(psf_sndReadPeaks(ofd,peaks,NULL) > 0){
 		long i;
@@ -125,7 +148,13 @@ int main(int argc, char* argv[])
 				peaktime = (double) peaks[i].pos / (double) props.srate;
 				printf("CH %d:\t%.4f at %.4f secs\n", i+1, peaks[i].val, peaktime);
 			}
-	}	
+	}
+
+	span = clock() - start;
+
+	int msec = span * 1000 / CLOCKS_PER_SEC;
+	printf("Time taken %d seconds %d milliseconds\n", msec/1000, msec%1000);
+
 	/* do all cleanup  */    
 exit:	 	if(ifd >= 0)
 		psf_sndClose(ifd);
