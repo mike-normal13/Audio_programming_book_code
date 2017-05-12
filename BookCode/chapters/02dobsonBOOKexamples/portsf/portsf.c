@@ -3267,7 +3267,6 @@ psf_format psf_getFormatExt(const char *path)
 		return PSF_WAVE_EX;
 	else
 		return PSF_FMT_UNKNOWN;
-
 }
 
 /* return 0 for no PEAK data, 1 for success */
@@ -3292,8 +3291,8 @@ int psf_sndReadPeaks(int sfd,PSF_CHPEAK peakdata[],MYLONG *peaktime)
 		if(peaktime!= NULL)
 			*peaktime = 0;		
 		return 0;			
-
 	}
+	
 	if(peaktime != NULL)
 		*peaktime = (int) sfdat->peaktime;
 	nchans = sfdat->fmt.Format.nChannels;
@@ -3311,8 +3310,6 @@ static float trirand(void)
 	r2 = (double) rand() * inv_randmax;
 
 	return (float)((r1 + r2) - 1.0);
-
-
 }
 
 int psf_sndSetDither(int sfd,unsigned int dtype)

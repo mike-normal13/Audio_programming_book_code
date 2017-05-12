@@ -21,6 +21,9 @@ sfnorm: sfnorm.c $(PORTSF)
 sfpan: sfpan.c breakpoints.c $(PORTSF)
 	$(CC)  -o sfpan sfpan.c breakpoints.c $(INCLUDES) $(LIBS)
 
+sfpeak: sfpeak.c $(PORTSF)
+	$(CC) -o sfpeak sfpeak.c $(INCLUDES) $(LIBS)
+
 envx: envx.c $(PORTSF)
 	$(CC)  -o envx envx.c $(INCLUDES) $(LIBS)
 

@@ -27,7 +27,7 @@ OTHER DEALINGS IN THE SOFTWARE.
 #include <portsf.h>
 #include <time.h>
 
-#define FRAME_BUF 4 
+#define FRAME_BUF 1
 
 // Exercise 2.1.1
 // Timing results for rain_spread.wav:
@@ -65,9 +65,9 @@ int main(int argc, char* argv[])
 	if(argc < 3){
 		printf("insufficient arguments.\n"
 				"usage:\n\t"
-				"sf2float infile outfile nLoops\n");
-		printf("entering a loop number of 1 or less will result in a single copy of the file, i.e. 1 loop.")
-		printf("entering an invalid value for nLoops will have the same effect as entering a value of 1 or less");
+				"sf2float infile outfile nLoops(optional)\n");
+		printf("entering a loop number of 1 or less will result in a single copy of the file, i.e. 1 loop.\n");
+		printf("entering an invalid value for nLoops will have the same effect as entering a value of 1 or less.\n");
 		return 1;
 	}
 	/* be good, and startup portsf */
@@ -101,10 +101,11 @@ int main(int argc, char* argv[])
 
 	/* we now have a resource, so we use goto hereafter on hitting any error */
 	/* tell user if source file is already floats  */
-	if(props.samptype == PSF_SAMP_IEEE_FLOAT){
-		printf("Info: infile is already in floats format.\n");		
-	}
-	props.samptype = PSF_SAMP_IEEE_FLOAT;
+	// if(props.samptype == PSF_SAMP_IEEE_FLOAT){
+	// 	printf("Info: infile is already in floats format.\n");		
+	// }
+	// props.samptype = PSF_SAMP_IEEE_FLOAT;
+
 	/* check file extension of outfile name, so we use correct output file format*/
 	outformat = psf_getFormatExt(argv[2]);
 	if(outformat == PSF_FMT_UNKNOWN){
@@ -140,6 +141,7 @@ int main(int argc, char* argv[])
 
 	start = clock();
 
+	//	Exercise 2.1.6
 	// write to buffer nLoop times
 	while(nLoops > 0)
 	{
@@ -148,7 +150,7 @@ int main(int argc, char* argv[])
 		framesread = psf_sndReadFloatFrames(ifd, frame, FRAME_BUF);
 		totalread = 0;		/* count sample frames as they are copied */
 	
-		while (framesread == FRAME_BUF)
+		while (framesread > 0)
 		{
 			totalread += FRAME_BUF;
 			if(psf_sndWriteFloatFrames(ofd, frame, FRAME_BUF) != FRAME_BUF)
